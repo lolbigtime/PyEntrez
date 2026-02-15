@@ -1,0 +1,7 @@
+<ENTREZ_DIRECT>
+  <Db>pubmed</Db>
+  <WebEnv>MCID_abc123</WebEnv>
+  <QueryKey>1</QueryKey>
+  <Count>42</Count>
+  <Step>1</Step>
+</ENTREZ_DIRECT>

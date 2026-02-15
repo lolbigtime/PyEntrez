@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyentrez"
+version = "0.1.0"
+description = "Python wrapper for NCBI EDirect command-line tools"
+requires-python = ">=3.10"
+license = "MIT"
+readme = "README.md"
+dependencies = []
+keywords = ["ncbi", "entrez", "edirect", "pubmed", "bioinformatics"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+
+[project.urls]
+Homepage = "https://github.com/<user>/PyEntrez"
+Repository = "https://github.com/<user>/PyEntrez"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+]
+
+[tool.pytest.ini_options]
+markers = [
+    "integration: tests that call the live NCBI EDirect API",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

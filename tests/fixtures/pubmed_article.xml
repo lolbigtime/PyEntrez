@@ -1,0 +1,72 @@
+<PubmedArticleSet>
+  <PubmedArticle>
+    <MedlineCitation>
+      <PMID>12345678</PMID>
+      <Article>
+        <Journal>
+          <ISSN IssnType="Electronic">1234-5678</ISSN>
+          <JournalIssue>
+            <PubDate>
+              <Year>2023</Year>
+              <Month>Mar</Month>
+              <Day>15</Day>
+            </PubDate>
+          </JournalIssue>
+          <Title>Journal of Testing</Title>
+          <ISOAbbreviation>J Test</ISOAbbreviation>
+        </Journal>
+        <ArticleTitle>CRISPR-Cas9 Advances in Genome Editing</ArticleTitle>
+        <Abstract>
+          <AbstractText>This is the abstract of the article.</AbstractText>
+        </Abstract>
+        <AuthorList>
+          <Author>
+            <LastName>Smith</LastName>
+            <ForeName>John</ForeName>
+            <AffiliationInfo>
+              <Affiliation>MIT, Cambridge, MA</Affiliation>
+            </AffiliationInfo>
+            <Identifier Source="ORCID">0000-0001-2345-6789</Identifier>
+          </Author>
+          <Author>
+            <LastName>Doe</LastName>
+            <ForeName>Jane</ForeName>
+            <AffiliationInfo>
+              <Affiliation>Stanford University</Affiliation>
+            </AffiliationInfo>
+          </Author>
+        </AuthorList>
+        <GrantList>
+          <Grant>
+            <GrantID>R01-GM123456</GrantID>
+            <Agency>NIGMS NIH HHS</Agency>
+            <Acronym>GM</Acronym>
+            <Country>United States</Country>
+          </Grant>
+        </GrantList>
+        <PublicationTypeList>
+          <PublicationType>Journal Article</PublicationType>
+          <PublicationType>Research Support, N.I.H., Extramural</PublicationType>
+        </PublicationTypeList>
+        <DataBankList>
+          <DataBank>
+            <DataBankName>GEO</DataBankName>
+            <AccessionNumberList>
+              <AccessionNumber>GSE12345</AccessionNumber>
+              <AccessionNumber>GSE67890</AccessionNumber>
+            </AccessionNumberList>
+          </DataBank>
+        </DataBankList>
+      </Article>
+      <MeshHeadingList>
+        <MeshHeading>
+          <DescriptorName UI="D000071" MajorTopicYN="Y">CRISPR-Cas Systems</DescriptorName>
+          <QualifierName UI="Q000235" MajorTopicYN="N">genetics</QualifierName>
+        </MeshHeading>
+        <MeshHeading>
+          <DescriptorName UI="D016678" MajorTopicYN="N">Genome</DescriptorName>
+        </MeshHeading>
+      </MeshHeadingList>
+    </MedlineCitation>
+  </PubmedArticle>
+</PubmedArticleSet>

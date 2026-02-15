@@ -1,0 +1,20 @@
+<eLinkResult>
+  <LinkSet>
+    <IdList>
+      <Id>11111111</Id>
+    </IdList>
+    <LinkSetDb>
+      <Link><Id>22222222</Id></Link>
+      <Link><Id>33333333</Id></Link>
+      <Link><Id>44444444</Id></Link>
+    </LinkSetDb>
+  </LinkSet>
+  <LinkSet>
+    <IdList>
+      <Id>55555555</Id>
+    </IdList>
+    <LinkSetDb>
+      <Link><Id>66666666</Id></Link>
+    </LinkSetDb>
+  </LinkSet>
+</eLinkResult>
