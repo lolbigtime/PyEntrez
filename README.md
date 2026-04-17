@@ -17,7 +17,7 @@ You will also need an [NCBI API key](https://ncbiinsights.ncbi.nlm.nih.gov/2017/
 ## Installation
 
 ```bash
-pip install git+https://github.com/<user>/PyEntrez.git
+pip install git+https://github.com/lolbigtime/PyEntrez.git
 ```
 
 ## Quick start

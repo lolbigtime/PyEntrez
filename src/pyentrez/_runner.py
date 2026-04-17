@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import asyncio
+import concurrent.futures
 import os
 import shutil
 import subprocess
@@ -86,13 +88,8 @@ class EDirectRunner:
         full_cmd = [exe] + cmd[1:]
 
         try:
-            result = subprocess.run(
-                full_cmd,
-                input=input,
-                capture_output=True,
-                text=True,
-                timeout=timeout,
-                env=env,
+            result = self._run_subprocess(
+                full_cmd, input=input, timeout=timeout, env=env,
             )
         except subprocess.TimeoutExpired:
             raise EDirectTimeoutError(cmd, timeout) from None
@@ -101,6 +98,47 @@ class EDirectRunner:
             raise EDirectCommandError(cmd, result.returncode, result.stderr)
 
         return result.stdout
+
+    # ------------------------------------------------------------------
+    # Subprocess helpers
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def _run_subprocess(
+        cmd: list[str],
+        *,
+        input: str | None,
+        timeout: int,
+        env: dict[str, str],
+    ) -> subprocess.CompletedProcess[str]:
+        """Run a subprocess, offloading to a thread if an event loop is running.
+
+        Jupyter notebooks run an asyncio event loop on the main thread, which
+        causes blocking ``subprocess.run()`` calls to hang.  When we detect a
+        running loop we schedule the call in a thread so it never blocks the
+        loop.
+        """
+        def _call() -> subprocess.CompletedProcess[str]:
+            return subprocess.run(
+                cmd,
+                input=input,
+                capture_output=True,
+                text=True,
+                timeout=timeout,
+                env=env,
+            )
+
+        try:
+            loop = asyncio.get_running_loop()
+        except RuntimeError:
+            loop = None
+
+        if loop is not None:
+            with concurrent.futures.ThreadPoolExecutor(1) as pool:
+                future = pool.submit(_call)
+                return future.result(timeout=timeout)
+
+        return _call()
 
     # ------------------------------------------------------------------
     # Resolution
